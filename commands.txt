@@ -1,0 +1,128 @@
+docker build -t carimage123 .
+docker run -d -p 8081:8080 --name carcontainer carimage123
+http://localhost:8081/bookcar/
+docker logs carcontainer
+
+
+docker login
+docker tag carimage123 dockerhubusername/carimage123:latest
+docker push dockerhubusername/carimage123:latest
+docker pull dockerhubusername/carimage123:latest
+
+
+GIt
+git config --global user.name "Your Name"
+git config --global user.email "your@email.com"
+System.out.println("Welcome to Maven Git Project");//modify app.java
+git diff
+git add .
+git diff --staged
+git log
+git log --oneline
+System.out.println("Temporary changes");
+git stash
+git stash list
+git stash pop
+git remote add origin https://github.com/USERNAME/REPOSITORY.git
+git fetch origin
+git branch -r
+git switch -c feature
+git add .
+git commit -m "Feature update"
+git switch main
+git add .
+git commit -m "Main branch update"
+git switch feature
+git rebase main
+git revert COMMIT_ID
+git reset --soft HEAD~1	Removes latest commit but keeps changes staged
+git reset --mixed HEAD~1	Removes latest commit but keeps changes unstaged
+git reset --hard HEAD~1	Removes latest commit and discards changes
+
+
+
+
+git diff	Shows file changes
+git log	Displays commit history
+git rebase	Reapplies commits on another base
+git stash	Temporarily saves changes
+git stash pop	Restores stashed changes
+git revert	Reverses a commit
+git fetch	Downloads remote changes
+git reset	Moves HEAD to an earlier commit
+
+
+
+
+
+
+
+:: 1. Build Maven project
+mvn clean package
+
+:: 2. Build Docker image
+docker build -t foodimage123 .
+
+:: 3. Login to Docker Hub
+docker login
+
+:: 4. Tag image
+docker tag foodimage123 dockerhubusername/foodimage123:latest
+
+:: 5. Push image
+docker push dockerhubusername/foodimage123:latest
+
+:: ON ANOTHER SYSTEM
+
+:: 6. Login
+docker login
+
+:: 7. Pull image
+docker pull dockerhubusername/foodimage123:latest
+
+:: 8. Run application
+docker run -d -p 8081:8080 --name foodcontainer dockerhubusername/foodimage123:latest
+
+:: 9. Verify
+docker ps
+
+:: 10. Open browser
+:: http://localhost:8081/application/
+
+
+
+
+
+
+:: Start Minikube if using Minikube
+minikube start
+
+:: Create NGINX deployment
+kubectl create deployment mynzinx --image=nginx
+
+:: Check deployment and pods
+kubectl get deployments
+kubectl get pods
+
+:: Scale to 3 replicas
+kubectl scale deployment mynzinx --replicas=3
+
+:: Scale to 5 replicas
+kubectl scale deployment mynzinx --replicas=5
+
+:: Scale down to 2 replicas
+kubectl scale deployment mynzinx --replicas=2
+
+:: Expose deployment
+kubectl expose deployment mynzinx --type=NodePort --port=80
+
+:: Check services
+kubectl get services
+
+:: Access using port forwarding
+kubectl port-forward service/mynzinx 8080:80
+
+:: Delete resources
+kubectl delete service mynzinx
+kubectl delete deployment mynzinx
+

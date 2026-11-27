@@ -1,0 +1,12 @@
+mkdir Nagios
+cd Nagios
+docker run -d --name nagios -p 8085:80 -p 5666:5666 jasonrivers/nagios:latest
+docker logs nagios
+http://localhost:8085/nagios
+Username: nagiosadmin
+Password: nagios
+docker exec nagios /opt/nagios/bin/nagios -v /opt/nagios/etc/nagios.cfg
+docker exec nagios ps aux
+docker exec nagios cat /opt/nagios/etc/objects/localhost.cfg
+docker exec nagios service nagios restart
+docker logs --tail 50 nagios

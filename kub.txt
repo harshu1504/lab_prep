@@ -1,0 +1,7 @@
+kubectl apply -f deployment.yaml
+kubectl get deployments
+kubectl apply -f service.yaml
+kubectl get services
+kubectl get endpoints nginx-service
+minikube service nginx-service --url
+kubectl scale deployment nginx-deployment --replicas=3

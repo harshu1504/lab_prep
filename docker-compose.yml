@@ -1,0 +1,25 @@
+
+services:
+  tomcat:
+    image: tomcat:9.0-jdk17
+    container_name: oems-tomcat
+    ports:
+      - "8080:8080"
+    networks:
+      - oems-network
+
+  nginx:
+    image: nginx:latest
+    container_name: oems-nginx
+    ports:
+      - "80:80"
+    depends_on:
+      - tomcat
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - oems-network
+
+networks:
+  oems-network:
+    driver: bridge

@@ -23,3 +23,96 @@ sudo /opt/tomcat/bin/startup.sh
 ls -lh /opt/tomcat/webapps/
 tail -f /opt/tomcat/logs/catalina.out
 http://YOUR_PUBLIC_IP:9090/OnlineEventManagement/
+
+
+
+
+
+
+
+
+
+
+
+# Update packages
+sudo apt update
+
+sudo apt upgrade -y
+
+# Install Java
+sudo apt install openjdk-17-jdk -y
+
+# Verify Java
+java -version
+javac -version
+
+# Install Maven
+sudo apt install maven -y
+
+# Verify Maven
+mvn -version
+
+# Install Git
+sudo apt install git -y
+
+# Install Tomcat 9
+sudo apt install tomcat9 -y
+
+# Start Tomcat
+sudo systemctl start tomcat9
+
+# Enable Tomcat at startup
+sudo systemctl enable tomcat9
+
+# Check Tomcat status
+sudo systemctl status tomcat9
+# Clone GitHub repository
+git clone https://github.com/USERNAME/REPOSITORY.git
+
+# Enter project directory
+cd REPOSITORY
+
+# Check project files
+ls
+
+# Build Maven application
+mvn clean package
+
+# Check generated WAR file
+ls target/
+
+# Copy WAR file to Tomcat
+sudo cp target/*.war /var/lib/tomcat9/webapps/
+
+# Restart Tomcat
+sudo systemctl restart tomcat9
+
+# Check Tomcat status
+sudo systemctl status tomcat9
+
+# Check deployed application
+ls /var/lib/tomcat9/webapps/
+http://YOUR_PUBLIC_IP:8080/APP_NAME/
+# Check Tomcat status
+sudo systemctl status tomcat9
+
+# Restart Tomcat
+sudo systemctl restart tomcat9
+
+# Stop Tomcat
+sudo systemctl stop tomcat9
+
+# Start Tomcat
+sudo systemctl start tomcat9
+
+# Check Tomcat logs
+sudo journalctl -u tomcat9 -n 50
+
+# Check port 8080
+sudo ss -tlnp | grep 8080
+
+# Check deployed WAR files
+ls /var/lib/tomcat9/webapps/
+
+# Test Tomcat locally
+curl http://localhost:8080/
